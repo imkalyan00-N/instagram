@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Account Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Account Generator 🔥</h1>
+  <p>Generate demo accounts instantly</p>
+
+  <input type="number" id="num" value="1" min="1" max="5">
+  <button onclick="generate()">Create Accounts</button>
+
+  <div id="output"></div>
+</div>
+
+<script>
+function randomStr(len=8){
+  let chars="abcdefghijklmnopqrstuvwxyz";
+  let res="";
+  for(let i=0;i<len;i++){
+    res+=chars[Math.floor(Math.random()*chars.length)];
+  }
+  return res;
+}
+
+function generate(){
+  let n=document.getElementById("num").value;
+  let out="";
+
+  for(let i=0;i<n;i++){
+    let user=randomStr();
+    let email=user+"@demo.com";
+
+    out+=`
+    <div class="account">
+      <h3>Account ${i+1}</h3>
+      <p><b>Username:</b> ${user}</p>
+      <p><b>Email:</b> ${email}</p>
+      <p><b>Password:</b> ********</p>
+    </div>`;
+  }
+
+  document.getElementById("output").innerHTML=out;
+}
+</script>
+
+</body>
+</html>
