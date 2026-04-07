@@ -187,19 +187,41 @@
         }
         .prank-text {
             color: #d9534f;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: bold;
             line-height: 1.5;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         .credit-text {
-            font-size: 18px;
-            color: #333;
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #f2f2f2;
-            padding: 10px;
-            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .credit-text p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Instagram Style Button */
+        .insta-btn {
             display: inline-block;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(220, 39, 67, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .insta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(220, 39, 67, 0.6);
+            color: white;
+            text-decoration: none;
         }
 
         input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
@@ -301,7 +323,6 @@
                 <button class="print-btn" onclick="window.print()">Print</button>
                 <button class="back-btn" onclick="location.reload()">Back</button>
                 <br>
-                <!-- Ikkada add chesam Re-Verification Button -->
                 <button class="recheck-btn" onclick="showPrankMessage()">Apply for Re-Verification / Recounting</button>
             </div>
 
@@ -310,22 +331,27 @@
             </div>
         </div>
 
-        <!-- Prank Reveal Box (Hidden Initially) -->
+        <!-- Prank Reveal Box -->
         <div id="prank-reveal" class="prank-box" style="display: none;">
             <div class="prank-text">
-                "neeku sugar ahh results vachedaka wait chey velli duppati kappukoni paduko" 🤣
+                neeku sugar ahh results vachedaka wait chey velli duppati kappukoni paduko 🤣
             </div>
+            
             <div class="credit-text">
-                made by <b>_.vibechaser._</b>
+                <p>Pranked By:</p>
+                <!-- Instagram Styled Button -->
+                <a href="https://instagram.com/_.vibechaser._" target="_blank" class="insta-btn">
+                    📸 @_.vibechaser._
+                </a>
             </div>
-            <br><br>
-            <button class="btn-submit" onclick="location.reload()">Go Back</button>
+            
+            <br><br><br>
+            <button class="btn-submit" onclick="location.reload()" style="background-color: #666;">Go Back</button>
         </div>
 
     </div>
 
     <script>
-        // NEW SYLLABUS DATA (2026)
         const courseData = {
             'MPC': {
                 fullName: 'MATHEMATICS, PHYSICS, CHEMISTRY (MPC)',
@@ -399,7 +425,6 @@
 
             const data = courseData[courseSelect];
 
-            // Assign Data to HTML
             document.getElementById('res-htno').innerText = htnoInput;
             document.getElementById('res-name').innerText = nameInput;
             document.getElementById('res-course').innerText = data.fullName;
@@ -425,7 +450,6 @@
 
             document.getElementById('marks-body').innerHTML = tableHTML;
 
-            // Switch Views
             document.getElementById('search-box').style.display = 'none';
             document.getElementById('result-box').style.display = 'block';
         }
